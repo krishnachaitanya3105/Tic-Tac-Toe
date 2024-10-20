@@ -43,3 +43,26 @@ background-color: black;
 color: white;
 border-radius: 1rem;
 }
+#newbtn{
+    padding: 1rem;
+font-size: 1.2rem;
+background-color: black;
+color: white;
+border-radius: 1rem;
+}
+#msg{
+    color: beige;
+    font-size: 3rem;
+}
+
+.msgcontainer{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.hide{
+  
+    display: none;
+}
