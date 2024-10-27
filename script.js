@@ -4,6 +4,7 @@ let newgamebtn=document.querySelector("#newbtn");
 let msgcontainer=document.querySelector(".msgcontainer")
 let msg=document.querySelector("#msg");
 let turnO=true;
+let count=0;
 const winpatterns = {
     0: [0, 1, 2],
     1: [3, 4, 5],
@@ -21,17 +22,22 @@ box.addEventListener("click",()=>{
     if(turnO)
     {
         box.innerHTML="O";
+        box.classList.add("o-style");
+        box.classList.remove("x-style");
         turnO=false;
     }
     else{
         box.innerHTML="X";
+        box.classList.add("x-style");
+        box.classList.remove("o-style");
         turnO=true;
     }
 box.disabled = true; 
+count++;
 checkwinner();
 
-})
-})
+});
+});
 const enableboxes = () => {
     for(let box of boxes)
         {
@@ -50,6 +56,12 @@ const disableboxes = () =>{
     {
         box.disabled=true;
     }
+}
+const showdraw=()=>{
+msg.innerText="Game has been drawn";
+msgcontainer.classList.remove("hide");
+disableboxes();
+
 }
 const showWinner=(winner)=>
 {
@@ -70,7 +82,12 @@ const checkwinner = () => {
             {
                 console.log("Winner",pos1val);
                 showWinner(pos1val);
+
             }
+         }
+         if(count==9)
+         {
+            showdraw();
          }
         }
      
